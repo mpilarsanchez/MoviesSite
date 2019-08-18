@@ -16,20 +16,28 @@ class MoviesController extends Controller
           return view ("listadoPeliculas", $vac);
         }
 
-        public function listaPeliculas(){
-           $peliculas = Movie::all();//SELECT * FROM movies
-           //  dd($peliculas);
-               $vac = compact("peliculas");
-               return view ("agregarActor", $vac);
-             }
+  public function listaPeliculas(){
+     $peliculas = Movie::all();//SELECT * FROM movies
+     //  dd($peliculas);
+         $vac = compact("peliculas");
+         return view ("agregarActor", $vac);
+       }
 
+   public function api(){
+      $peliculas = Movie::all();//SELECT * FROM movies
+      //  dd($peliculas);
+      foreach ($peliculas as $pelicula){
+         $pelicula->genre_id = $pelicula->genero['name'];
+      }
+          return json_encode($peliculas);
+    }
 
-        public function detalle($id){
-          $pelicula = Movie::find($id); //find y all son los unicos metodos de eloquent que funcionan por si solos
-          //SELECT FROM * FROM movies  WHERE id =$id
-           $vac = compact ("pelicula");
-           return view("detallePelicula", $vac);
-         }
+      public function detalle($id){
+        $pelicula = Movie::find($id); //find y all son los unicos metodos de eloquent que funcionan por si solos
+        //SELECT FROM * FROM movies  WHERE id =$id
+         $vac = compact ("pelicula");
+         return view("detallePelicula", $vac);
+       }
 
 
  public function agregar(Request $req){
