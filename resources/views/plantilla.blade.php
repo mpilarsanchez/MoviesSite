@@ -11,7 +11,8 @@
     <style type="text/css">
   body {
     color: purple;
-    background-color: #d8da3d }
+    background-color: #d8da3d   
+    }
   </style>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,7 +36,7 @@
       					<a class="nav-link" href="/agregarPelicula">Crear película</a>
       				</li>
       				<li class="nav-item">
-      					<a class="nav-link" href="/generos">Crear género</a>
+      					<a class="nav-link" href="/generos">Listado géneros</a>
       				</li>
               <br>
               <br>
